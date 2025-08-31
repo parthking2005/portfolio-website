@@ -1,0 +1,190 @@
+.main{
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-1);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.main-route{
+  width: 95%;
+  height: 95vh;
+  gap: 20px;
+}
+
+.first-side{
+  width: 22%;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.second-side{
+  width: 76%;
+  position: relative;
+}
+
+.navbar-side{
+  width: 100%;
+  height: 12%;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.down-side{
+  width: 100%;
+  height: 84%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .main-route{
+    width: 90%;
+    height: 85vh;
+  }
+}
+
+/* Medium/tablet screens */
+@media (max-width: 992px) {
+  .main{
+    padding: 15px 0;
+  }
+  
+  .main-route{
+    width: 95%;
+    gap: 15px;
+  }
+  
+  .first-side{
+    width: 25%;
+  }
+  
+  .second-side{
+    width: 73%;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 768px) {
+  .main{
+    padding: 10px;
+    align-items: flex-start;
+  }
+  
+  .main-route{
+    width: 95%;
+    height: auto;
+    min-height: unset;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .first-side{
+    display: none;
+  }
+  
+  .second-side{
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .navbar-side{
+    position: relative;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .down-side{
+    position: relative;
+    height: auto;
+    min-height: 450px;
+    bottom: unset;
+    right: unset;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 667px) {
+  .main{
+    height: auto;
+    padding: 10px;
+    display: block;
+    overflow-y: auto;
+  }
+  
+  .main-route{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+  }
+  
+  .first-side{
+    display: none;
+  }
+  
+  .second-side{
+    width: 100%;
+    height: auto;
+  }
+  
+  .navbar-side{
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .down-side{
+    position: relative;
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .main{
+    padding: 5px;
+  }
+  
+  .main-route{
+    padding: 0;
+    gap: 5px;
+  }
+  
+  .navbar-side{
+    height: 45px;
+    margin-bottom: 5px;
+  }
+  
+  .down-side{
+    min-height: 450px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 320px) {
+  .main{
+    padding: 3px;
+  }
+  
+  .navbar-side{
+    height: 40px;
+  }
+  
+  .down-side{
+    min-height: 400px;
+  }
+}
