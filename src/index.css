@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg-1: #0F1116;
+  --bg-2: #181A1F;
+  --panel-gloss: linear-gradient(180deg,#15171b 0%, #1c2026 100%);
+  --card-bg: rgba(26,26,30,0.85);
+  --accent-gold-1: #FFD34D;
+  --accent-gold-2: #FFB300;
+  --accent-gold-grad: linear-gradient(90deg,#FFD34D 0%, #FFB300 60%);
+  --accent-teal: #00D1A1;
+  --success-green: #00E676;
+  --muted: #BDBCC1;
+  --text: #F5F6F7;
+  --card-border: rgba(255,195,0,0.12);
+  --glass-shadow: 0 10px 30px rgba(2,3,6,0.65);
+  
+  /* Gradient border colors */
+  --gradient-border-1: #FF6B9D;
+  --gradient-border-2: #4ECDC4;
+  --gradient-border-3: #45B7D1;
+  --gradient-border-4: #96CEB4;
+  --gradient-border-5: #FFEAA7;
+}
+
+body { 
+  background: var(--bg-1); 
+  color: var(--text); 
+  font-family: "Inter", sans-serif; 
+}
+
+.main-panel, .section { 
+  background: var(--panel-gloss); 
+  box-shadow: var(--glass-shadow); 
+  border-radius: 16px; 
+}
+
+/* Gradient border utilities */
+.gradient-border {
+  position: relative;
+  background: var(--bg-1);
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    var(--gradient-border-1),
+    var(--gradient-border-2),
+    var(--gradient-border-3),
+    var(--gradient-border-4),
+    var(--gradient-border-5),
+    var(--gradient-border-1)
+  );
+  border-radius: 12px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar { 
+  width: 10px; 
+}
+
+::-webkit-scrollbar-track { 
+  background: #0f0f12; 
+  border-radius: 8px; 
+}
+
+::-webkit-scrollbar-thumb { 
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-gold-1),
+    var(--accent-gold-2),
+    var(--accent-teal),
+    var(--success-green),
+    var(--accent-gold-1)
+  );
+  border-radius: 8px;
+  border: 2px solid #0f0f12;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: conic-gradient(
+    from 180deg,
+    var(--accent-gold-1),
+    var(--accent-gold-2),
+    var(--accent-teal),
+    var(--success-green),
+    var(--accent-gold-1)
+  );
+}
