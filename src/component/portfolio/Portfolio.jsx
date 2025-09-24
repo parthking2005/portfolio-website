@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import './Portfolio.css'
+import placeholderImg from '../../assets/file.png'
 
 const Portfolio = () => {
   const containerVariants = {
@@ -26,9 +27,9 @@ const Portfolio = () => {
   }
 
   const projects = [
-    { id: 1, title: "Todo List", image: "/src/assets/file.png" },
-    { id: 2, title: "HR Management system", image: "/src/assets/file.png" },
-    { id: 3, title: "CricTo", image: "/src/assets/file.png" }
+    { id: 1, title: "Todo List", image: placeholderImg },
+    { id: 2, title: "HR Management system", image: placeholderImg },
+    { id: 3, title: "CricTo", image: placeholderImg }
   ]
 
   return (

@@ -1,4 +1,5 @@
 import React from 'react'
+import file from '../../assets/file.png';
 import { motion } from 'framer-motion'
 import './Home.css'
 
@@ -100,15 +101,6 @@ const Home = () => {
             >
               Passionate about creating innovative web solutions and turning ideas into reality through clean, efficient code.
             </motion.p>
-            <motion.a 
-              href="/about"
-              className="explore-btn"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              Explore My Work
-            </motion.a>
           </motion.div>
           
           <motion.div className="hero-image" variants={imageVariants}>
@@ -125,7 +117,7 @@ const Home = () => {
                 }}
               />
               <motion.img 
-                src="/src/assets/file.png" 
+                src={file}
                 alt="Parth Kathrotiya" 
                 className="hero-image-profile"
                 whileHover={{ scale: 1.05 }}

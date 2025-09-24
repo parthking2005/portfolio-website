@@ -1,6 +1,24 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import './AboutMe.css'
+import cppIcon from '../../assets/icons/c-.png'
+import javaIcon from '../../assets/icons/java.png'
+import pythonIcon from '../../assets/icons/python.png'
+import phpIcon from '../../assets/icons/php.png'
+import csharpIcon from '../../assets/icons/c-sharp.png'
+import htmlIcon from '../../assets/icons/html-5.png'
+import cssIcon from '../../assets/icons/css-3.png'
+import jsIcon from '../../assets/icons/js.png'
+import reactIcon from '../../assets/icons/react.png'
+import nodeIcon from '../../assets/icons/nodejs.png'
+import mongoIcon from '../../assets/icons/mongodb.png'
+import tailwindIcon from '../../assets/icons/tailwindcss.png'
+import figmaIcon from '../../assets/icons/figma.png'
+import firebaseIcon from '../../assets/icons/firebase.png'
+import gitIcon from '../../assets/icons/git.png'
+import githubIcon from '../../assets/icons/github.png'
+import sqlIcon from '../../assets/icons/sql.png'
+import vsIcon from '../../assets/icons/visual-studio.png'
 
 const AboutMe = () => {
   const containerVariants = {
@@ -34,28 +52,28 @@ const AboutMe = () => {
 
   const techStack = {
     languages: [
-        { src: "/src/assets/icons/c-.png", name: 'C++' },
-        { src: "/src/assets/icons/java.png", name: 'Java' },
-        { src: "/src/assets/icons/python.png", name: 'Python' },
-        { src: "/src/assets/icons/php.png", name: 'PHP' },
-        { src: "/src/assets/icons/c-sharp.png", name: 'C-Sharp' },
+        { src: cppIcon, name: 'C++' },
+        { src: javaIcon, name: 'Java' },
+        { src: pythonIcon, name: 'Python' },
+        { src: phpIcon, name: 'PHP' },
+        { src: csharpIcon, name: 'C-Sharp' },
     ],
     frameworks: [
-        { src: "/src/assets/icons/html-5.png", name: 'HTML' },
-        { src: "/src/assets/icons/css-3.png", name: 'CSS' },
-        { src: "/src/assets/icons/js.png", name: 'JavaScript' },
-        { src: "/src/assets/icons/react.png", name: 'React' },
-        { src: "/src/assets/icons/nodejs.png", name: 'NodeJs' },
-        { src: "/src/assets/icons/mongodb.png", name: 'MongoDB' },
-        { src: "/src/assets/icons/tailwindcss.png", name: 'TailwindCSS' },
+        { src: htmlIcon, name: 'HTML' },
+        { src: cssIcon, name: 'CSS' },
+        { src: jsIcon, name: 'JavaScript' },
+        { src: reactIcon, name: 'React' },
+        { src: nodeIcon, name: 'NodeJs' },
+        { src: mongoIcon, name: 'MongoDB' },
+        { src: tailwindIcon, name: 'TailwindCSS' },
     ],
     tools: [
-          { src: "/src/assets/icons/figma.png", name: 'Figma' },
-          { src: "/src/assets/icons/firebase.png", name: 'Firebase' },
-          { src: "/src/assets/icons/git.png", name: 'Git' },
-          { src: "/src/assets/icons/github.png", name: 'GitHub' },
-          { src: "/src/assets/icons/sql.png", name: 'SQL' },
-          { src: "/src/assets/icons/visual-studio.png", name: 'Visual Studio' },
+          { src: figmaIcon, name: 'Figma' },
+          { src: firebaseIcon, name: 'Firebase' },
+          { src: gitIcon, name: 'Git' },
+          { src: githubIcon, name: 'GitHub' },
+          { src: sqlIcon, name: 'SQL' },
+          { src: vsIcon, name: 'Visual Studio' },
     ],
 };
 
