@@ -188,7 +188,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Developer
 
 **Parth Kathrotiya**
-- **Email**: parthkathrotiya6@gmail.com
+- **Email**: parth.kathrotiya.dev@gmail.com
 - **Phone**: +91 9925413869
 - **Location**: Surat, Gujarat, India
 - **LinkedIn**: [Parth Kathrotiya](https://www.linkedin.com/in/parth-kathrotiya)
@@ -207,7 +207,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Support
 
 For any questions or support, please contact:
-- **Email**: parthkathrotiya6@gmail.com
+- **Email**: parth.kathrotiya.dev@gmail.com
 - **Phone**: +91 9925413869
 
 ---

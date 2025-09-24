@@ -39,7 +39,7 @@ function Sidebar() {
         <div className='second-sidebar-center relative'>
           <div className='sidebar-box absolute top-0'>
             <div className='sidebar-box-image'><img src={frameImage1} className='sidebar-box-image-img' alt="" /></div>
-            <div className='sidebar-box-text'>parthkathrotiya6@gmail.com</div>
+            <div className='sidebar-box-text'>parth.kathrotiya.dev@gmail.com</div>
           </div>
           <div className='sidebar-box absolute sidebar-box-2'>
             <div className='sidebar-box-image'><img src={frameImage} className='sidebar-box-image-img' alt="" /></div>

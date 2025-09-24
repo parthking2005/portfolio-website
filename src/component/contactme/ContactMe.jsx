@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import './ContactMe.css'
 
@@ -40,8 +41,8 @@ const ContactMe = () => {
       id: 1,
       icon: "📧",
       title: "Email",
-      value: "parthkathrotiya6@gmail.com",
-      link: "mailto:parthkathrotiya6@gmail.com"
+      value: "parth.kathrotiya.dev@gmail.com",
+      link: "mailto:parth.kathrotiya.dev@gmail.com"
     },
     {
       id: 2,
@@ -71,46 +72,81 @@ const ContactMe = () => {
 
   const handleSubmit = async (e) => {
     e?.preventDefault?.()
-    
-    if (!formData?.name?.trim() || !formData?.email?.trim() || !formData?.message?.trim()) {
-      setSubmitStatus('Please fill in all required fields')
-      return
-    }
 
-    setIsSubmitting(true)
-    setSubmitStatus(null)
+		// Basic required field validation
+		if (!formData?.name?.trim() || !formData?.email?.trim() || !formData?.message?.trim()) {
+			setSubmitStatus('Please fill in all required fields')
+			return
+		}
 
-    try {
-      // Send email through backend API
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+		setIsSubmitting(true)
+		setSubmitStatus(null)
 
-      const result = await response.json();
+		try {
+			// CLIENT-ONLY EMAIL SENDING using EmailJS Browser SDK (no backend needed)
+			// Setup steps (do these once in EmailJS dashboard):
+			// 1) Create an EmailJS account: https://www.emailjs.com/
+			// 2) Add an Email Service (Gmail/Outlook/SMTP) → get SERVICE ID
+			// 3) Create TWO templates and note their TEMPLATE IDs:
+			//    - TEMPLATE_TO_OWNER: sent to you (the site owner)
+			//    - TEMPLATE_CONFIRM: sent to the sender as confirmation
+			//    Recommended template variables for both templates:
+			//    {from_name}, {from_email}, {subject}, {message}, {to_name}, {to_email}
+			// 4) Account → API Keys → Create a Public Key → note PUBLIC KEY
+			// 5) Fill the constants below with your values
 
-      if (result.success) {
-        setSubmitStatus(result.message);
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-      } else {
-        setSubmitStatus(result.message || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('Failed to send message. Please check your connection and try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
+			const EMAILJS_SERVICE_ID = 'REPLACE_WITH_YOUR_SERVICE_ID' // e.g. 'service_abc123'
+			const TEMPLATE_TO_OWNER_ID = 'REPLACE_WITH_TEMPLATE_TO_OWNER' // e.g. 'template_notify_you'
+			const TEMPLATE_CONFIRM_ID = 'REPLACE_WITH_TEMPLATE_CONFIRM' // e.g. 'template_auto_reply'
+			const EMAILJS_PUBLIC_KEY = 'REPLACE_WITH_YOUR_PUBLIC_KEY' // e.g. 'a1b2c3PUBLICKEY'
+			const TO_NAME = 'Parth Kathrotiya'
+			const TO_EMAIL = 'parth.kathrotiya.dev@gmail.com' // Your inbox for receiving messages
+
+			// Safety check to prevent sending without configuration
+			if (
+				EMAILJS_SERVICE_ID.startsWith('REPLACE_') ||
+				TEMPLATE_TO_OWNER_ID.startsWith('REPLACE_') ||
+				TEMPLATE_CONFIRM_ID.startsWith('REPLACE_') ||
+				EMAILJS_PUBLIC_KEY.startsWith('REPLACE_')
+			) {
+				setSubmitStatus('Email is not configured. Please update EmailJS IDs and Public Key in code.')
+				return
+			}
+
+			// Params used by both templates
+			const baseParams = {
+				from_name: formData?.name,
+				from_email: formData?.email,
+				subject: formData?.subject || 'No subject',
+				message: formData?.message
+			}
+
+			// 1) Send to you (owner notification)
+			await emailjs.send(
+				EMAILJS_SERVICE_ID,
+				TEMPLATE_TO_OWNER_ID,
+				{ ...baseParams, to_name: TO_NAME, to_email: TO_EMAIL },
+				{ publicKey: EMAILJS_PUBLIC_KEY }
+			)
+
+			// 2) Send confirmation to the sender (optional: keep or remove as needed)
+			await emailjs.send(
+				EMAILJS_SERVICE_ID,
+				TEMPLATE_CONFIRM_ID,
+				{ ...baseParams, to_name: formData?.name, to_email: formData?.email },
+				{ publicKey: EMAILJS_PUBLIC_KEY }
+			)
+
+			setSubmitStatus("Message sent successfully! I'll get back to you soon.")
+			// Reset form after successful submission
+			setFormData({ name: '', email: '', subject: '', message: '' })
+		} catch (error) {
+			console.error('Form submission error:', error)
+			setSubmitStatus('Failed to send message. Please check your connection and try again.')
+		} finally {
+			setIsSubmitting(false)
+		}
+	}
 
   const handleContactClick = (contact) => {
     if (contact?.link) {

@@ -3,12 +3,12 @@ import { Outlet } from 'react-router-dom'
 import './Main.css'
 import Navbar from '../navbar/Navbar.jsx'
 import Sidebar from '../sidebar/Sidebar.jsx'
-import ParticlesBackground from '../ParticlesBackground.jsx'
+// Removed background animation due to responsiveness issues
 
 function Main() {
   return (
     <>
-      <ParticlesBackground />
+      {/* Background animation removed */}
       <div className='main items-center justify-center flex'>
         <div className='flex main-route'>
           <div className='first-side'><Sidebar /></div>
